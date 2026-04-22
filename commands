@@ -1,0 +1,34 @@
+mvn --version                     # Check if Maven is installed
+
+mvn archetype:generate           # Create a new Maven project
+
+# Follow prompts:
+# Choose archetype → press Enter
+# Enter groupId (e.g., com.bnmit)
+# Enter artifactId (e.g., sample-app)
+# Press Enter for version and package
+# Type 'y' to confirm
+
+cd sample-app                    # Move into project folder
+
+mvn package                      # Compile code and create JAR file (target folder created)
+
+mvn clean                        # Delete target folder (clean build files)
+
+mvn site                         # Generate project documentation (target/site folder)
+
+# --- MODIFY JAVA CODE ---
+
+# Go to:
+# src/main/java/com/bnmit/App.java
+# Replace code with your own (e.g., BankService)
+
+# Rename file if needed:
+# App.java → BankService.java
+
+mvn clean                        # Clean previous build
+mvn package                      # Rebuild project
+
+cd target                        # Move to target folder
+
+java -cp sample-app-1.0-SNAPSHOT.jar com.bnmit.BankService   # Run the program from JAR
